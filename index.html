@@ -3,208 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kendō Lookup – Nachschlagewerk & Technik-Übersicht</title>
-<style>
-  :root {
-    --bg: #0f172a;
-    --card-bg: #1e293b;
-    --card-hover: #273549;
-    --border: #334155;
-    --accent: #14b8a6;
-    --accent-hover: #0d9488;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg);
-    color: var(--text-main);
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  nav {
-    background-color: var(--card-bg);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  nav .brand {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-main);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-  }
-
-  nav .brand span {
-    color: var(--accent);
-    margin-left: 6px;
-    font-weight: 400;
-  }
-
-  nav .links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    margin-left: 24px;
-    font-size: 0.95rem;
-    transition: color 0.15s ease;
-  }
-
-  nav .links a:hover,
-  nav .links a.active {
-    color: var(--accent);
-  }
-
-  main {
-    max-width: 1000px;
-    width: 100%;
-    margin: 48px auto;
-    padding: 0 24px;
-    flex: 1;
-  }
-
-  .hero {
-    margin-bottom: 40px;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-  }
-
-  .hero p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    gap: 20px;
-  }
-
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-3px);
-    background: var(--card-hover);
-    border-color: var(--accent);
-  }
-
-  .card.disabled {
-    opacity: 0.55;
-    pointer-events: none;
-  }
-
-  .card-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    margin-bottom: 8px;
-    font-weight: 600;
-  }
-
-  .card h2 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
-  }
-
-  .card p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-  }
-
-  .card .cta {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
-  }
-
-  footer {
-    text-align: center;
-    padding: 24px;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 0.85rem;
-  }
-</style>
+<title data-i18n="index.pageTitle">Kendō Lookup – Nachschlagewerk &amp; Technik-Übersicht</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
 </head>
-<body>
+<body data-page="home">
 
-<nav>
-  <a href="index.html" class="brand">Kendō Lookup <span>剣道事典</span></a>
-  <div class="links">
-    <a href="index.html" class="active">Übersicht</a>
-    <a href="waza-hierarchy.html">Waza Stammbaum</a>
-  </div>
-</nav>
+<nav id="site-nav"></nav>
 
 <main>
   <section class="hero">
     <h1>Kendō Lookup</h1>
-    <p>Strukturiertes Nachschlagewerk für Techniken, Terminologie, Fußarbeit und Grundlagen.</p>
+    <p data-i18n="index.heroSubtitle">Strukturiertes Nachschlagewerk für Techniken, Terminologie, Fußarbeit und Grundlagen.</p>
   </section>
 
   <section class="grid">
     <a href="waza-hierarchy.html" class="card">
       <div>
-        <span class="card-tag">Techniken • 技</span>
-        <h2>Waza Stammbaum</h2>
-        <p>Hierarchische Baumstruktur aller Shikake- und Ōji-Waza mit den japanischen Kanji-Bezeichnungen bis hin zu den einzelnen Kombinationen.</p>
+        <span class="card-tag"><span data-i18n="index.cards.waza.tag">Techniken</span> • 技</span>
+        <h2 data-i18n="index.cards.waza.title">Waza Stammbaum</h2>
+        <p data-i18n="index.cards.waza.desc">Hierarchische Baumstruktur aller Shikake- und Ōji-Waza mit den japanischen Kanji-Bezeichnungen bis hin zu den einzelnen Kombinationen.</p>
       </div>
-      <span class="cta">Stammbaum öffnen →</span>
+      <span class="cta" data-i18n="index.cards.waza.cta">Stammbaum öffnen →</span>
     </a>
 
     <div class="card disabled">
       <div>
-        <span class="card-tag">Geplant • 足さばき</span>
-        <h2>Ashi-sabaki (Fußarbeit)</h2>
-        <p>Schrittarten, Bewegungsprinzipien und Biomechanik (Okuri-ashi, Ayumi-ashi, Fumikomi, Suri-ashi).</p>
+        <span class="card-tag"><span data-i18n="index.cards.planned">Geplant</span> • 足さばき</span>
+        <h2>Ashi-sabaki (<span data-i18n="index.cards.ashisabaki.sub">Fußarbeit</span>)</h2>
+        <p data-i18n="index.cards.ashisabaki.desc">Schrittarten, Bewegungsprinzipien und Biomechanik (Okuri-ashi, Ayumi-ashi, Fumikomi, Suri-ashi).</p>
       </div>
-      <span class="cta">Demnächst verfügbar</span>
+      <span class="cta" data-i18n="index.cards.comingSoon">Demnächst verfügbar</span>
     </div>
 
     <div class="card disabled">
       <div>
-        <span class="card-tag">Geplant • 礼法 & 用語</span>
-        <h2>Begriffe & Reihō</h2>
-        <p>Wichtige Grundbegriffe, Etikette, Kamae-Arten und mentale Konzepte im Training.</p>
+        <span class="card-tag"><span data-i18n="index.cards.planned">Geplant</span> • 礼法 &amp; 用語</span>
+        <h2><span data-i18n="index.cards.terms.titlePrefix">Begriffe</span> &amp; Reihō</h2>
+        <p data-i18n="index.cards.terms.desc">Wichtige Grundbegriffe, Etikette, Kamae-Arten und mentale Konzepte im Training.</p>
       </div>
-      <span class="cta">Demnächst verfügbar</span>
+      <span class="cta" data-i18n="index.cards.comingSoon">Demnächst verfügbar</span>
     </div>
   </section>
 </main>
 
-<footer>
-  Kendō Lookup Repository
-</footer>
+<footer id="site-footer"></footer>
 
+<script src="js/layout.js"></script>
+<script src="js/i18n.js"></script>
 </body>
 </html>

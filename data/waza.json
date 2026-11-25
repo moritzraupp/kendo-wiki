@@ -1,0 +1,177 @@
+{
+  "branches": [
+    {
+      "id": "shikake",
+      "name": "Shikake-Waza",
+      "jp": "仕掛け技",
+      "subtitleKey": "hierarchy.shikake.subtitle",
+      "categories": [
+        {
+          "id": "tobikomi",
+          "name": "Tobikomi-Waza",
+          "jp": "飛び込み技",
+          "descKey": "hierarchy.sub.tobikomi",
+          "waza": [
+            ["Tobikomi-Men", "飛び込み面"],
+            ["Tobikomi-Kote", "飛び込み小手"],
+            ["Tobikomi-Dō", "飛び込み胴"],
+            ["Tsuki", "突き (諸手突き / 片手突き)"]
+          ]
+        },
+        {
+          "id": "harai",
+          "name": "Harai-Waza",
+          "jp": "払い技",
+          "descKey": "hierarchy.sub.harai",
+          "waza": [
+            ["Harai-Men", "払い面 (表・裏)"],
+            ["Harai-Kote", "払い小手 (表・裏)"],
+            ["Harai-Dō", "払い胴"],
+            ["Harai-Tsuki", "払い突き"]
+          ]
+        },
+        {
+          "id": "osae",
+          "name": "Osae-Waza",
+          "jp": "押さえ技",
+          "descKey": "hierarchy.sub.osae",
+          "waza": [
+            ["Osae-Men", "押さえ面"],
+            ["Osae-Kote", "押さえ小手"],
+            ["Osae-Dō", "押さえ胴"]
+          ]
+        },
+        {
+          "id": "maki",
+          "name": "Maki-Waza",
+          "jp": "巻き技",
+          "descKey": "hierarchy.sub.maki",
+          "waza": [
+            ["Maki-Men", "巻き面 (表・裏)"],
+            ["Maki-Kote", "巻き小手"],
+            ["Maki-Otoshi-Men", "巻き落とし面"]
+          ]
+        },
+        {
+          "id": "hiki",
+          "name": "Hiki-Waza",
+          "jp": "引き技",
+          "descKey": "hierarchy.sub.hiki",
+          "waza": [
+            ["Hiki-Men", "引き面"],
+            ["Hiki-Kote", "引き小手"],
+            ["Hiki-Dō", "引き胴 (右胴・逆胴)"]
+          ]
+        },
+        {
+          "id": "renzoku",
+          "name": "Renzoku-Waza",
+          "jp": "連続技",
+          "descKey": "hierarchy.sub.renzoku",
+          "waza": [
+            ["Kote-Men", "小手面"],
+            ["Kote-Dō", "小手胴"],
+            ["Men-Men", "面面"],
+            ["Men-Dō", "面胴"],
+            ["Kote-Men-Men", "小手面面"],
+            ["Tsuki-Men / Tsuki-Kote", "突き面 / 突き小手"]
+          ]
+        },
+        {
+          "id": "katsugi",
+          "name": "Katsugi-Waza",
+          "jp": "担ぎ技",
+          "descKey": "hierarchy.sub.katsugi",
+          "waza": [
+            ["Katsugi-Men", "担ぎ面"],
+            ["Katsugi-Kote", "担ぎ小手"],
+            ["Katsugi-Dō", "担ぎ胴"]
+          ]
+        },
+        {
+          "id": "katate",
+          "name": "Katate-Waza",
+          "jp": "片手技",
+          "descKey": "hierarchy.sub.katate",
+          "waza": [
+            ["Katate-Men", "片手面"],
+            ["Katate-Tsuki", "片手突き"],
+            ["Katate-Kote", "片手小手"]
+          ]
+        },
+        {
+          "id": "debana",
+          "name": "Debana-Waza",
+          "jp": "出ばな技",
+          "descKey": "hierarchy.sub.debana",
+          "waza": [
+            ["Debana-Men", "出ばな面"],
+            ["Men-debana-Kote", "面出ばな小手"],
+            ["Kote-debana-Men", "小手出ばな面"],
+            ["Debana-Tsuki", "出ばな突き"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oji",
+      "name": "Ōji-Waza",
+      "jp": "応じ技",
+      "subtitleKey": "hierarchy.oji.subtitle",
+      "categories": [
+        {
+          "id": "nuki",
+          "name": "Nuki-Waza",
+          "jp": "抜き技",
+          "descKey": "hierarchy.sub.nuki",
+          "waza": [
+            ["Men-nuki-Men", "面抜き面"],
+            ["Men-nuki-Dō", "面抜き胴"],
+            ["Kote-nuki-Men", "小手抜き面"],
+            ["Kote-nuki-Kote", "小手抜き小手"],
+            ["Tsuki-nuki-Men", "突き抜き面"]
+          ]
+        },
+        {
+          "id": "suriage",
+          "name": "Suriage-Waza",
+          "jp": "すり上げ技",
+          "descKey": "hierarchy.sub.suriage",
+          "waza": [
+            ["Men-suriage-Men", "面すり上げ面 (表・裏)"],
+            ["Men-suriage-Kote", "面すり上げ小手"],
+            ["Kote-suriage-Men", "小手すり上げ面 (表・裏)"],
+            ["Kote-suriage-Kote", "小手すり上げ小手"],
+            ["Tsuki-suriage-Men", "突きすり上げ面"]
+          ]
+        },
+        {
+          "id": "kaeshi",
+          "name": "Kaeshi-Waza",
+          "jp": "返し技",
+          "descKey": "hierarchy.sub.kaeshi",
+          "waza": [
+            ["Men-kaeshi-Dō", "面返し胴"],
+            ["Men-kaeshi-Men", "面返し面"],
+            ["Men-kaeshi-Kote", "面返し小手"],
+            ["Kote-kaeshi-Men", "小手返し面"],
+            ["Kote-kaeshi-Kote", "小手返し小手"],
+            ["Dō-kaeshi-Men", "胴返し面"]
+          ]
+        },
+        {
+          "id": "uchiotoshi",
+          "name": "Uchiotoshi-Waza",
+          "jp": "打ち落とし技",
+          "descKey": "hierarchy.sub.uchiotoshi",
+          "waza": [
+            ["Men-uchiotoshi-Men", "面打ち落とし面"],
+            ["Kote-uchiotoshi-Men", "小手打ち落とし面"],
+            ["Dō-uchiotoshi-Men", "胴打ち落とし面"],
+            ["Tsuki-uchiotoshi-Men", "突き打ち落とし面"]
+          ]
+        }
+      ]
+    }
+  ]
+}

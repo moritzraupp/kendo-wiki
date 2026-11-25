@@ -1,0 +1,148 @@
+{
+  "de": {
+    "nav": {
+      "overview": "Übersicht",
+      "wazaHierarchy": "Waza Stammbaum",
+      "langAria": "Sprachauswahl"
+    },
+    "footer": {
+      "tagline": "Kendō Lookup • Nachschlagewerk für Techniken & Grundlagen",
+      "backToOverview": "Zur Übersicht"
+    },
+    "index": {
+      "pageTitle": "Kendō Lookup – Nachschlagewerk & Technik-Übersicht",
+      "heroSubtitle": "Strukturiertes Nachschlagewerk für Techniken, Terminologie, Fußarbeit und Grundlagen.",
+      "cards": {
+        "waza": {
+          "tag": "Techniken",
+          "title": "Waza Stammbaum",
+          "desc": "Hierarchische Baumstruktur aller Shikake- und Ōji-Waza mit den japanischen Kanji-Bezeichnungen bis hin zu den einzelnen Kombinationen.",
+          "cta": "Stammbaum öffnen →"
+        },
+        "planned": "Geplant",
+        "comingSoon": "Demnächst verfügbar",
+        "ashisabaki": {
+          "sub": "Fußarbeit",
+          "desc": "Schrittarten, Bewegungsprinzipien und Biomechanik (Okuri-ashi, Ayumi-ashi, Fumikomi, Suri-ashi)."
+        },
+        "terms": {
+          "titlePrefix": "Begriffe",
+          "desc": "Wichtige Grundbegriffe, Etikette, Kamae-Arten und mentale Konzepte im Training."
+        }
+      }
+    },
+    "hierarchy": {
+      "pageTitle": "Waza Stammbaum – Kendō Lookup",
+      "titleSuffix": "Stammbaum",
+      "subtitle": "Hierarchische vertikale Gliederung der Techniken in Shikake-Waza (Initiative) und Ōji-Waza (Reaktion) mit Kanji und Details.",
+      "toolbar": {
+        "viewLabel": "Ansicht:",
+        "singleCol": "☰ Vertikal (1-spaltig)",
+        "twoCol": "☷ Geteilt (2-spaltig)",
+        "searchPlaceholder": "Waza suchen... (z. B. Men, Kote, Harai, Nuki, すり上げ)",
+        "searchAria": "Waza durchsuchen"
+      },
+      "rootSubtitle": "Gesamtheit aller Techniken",
+      "units": {
+        "categorySingular": "Kategorie",
+        "categoryPlural": "Kategorien",
+        "waza": "Waza",
+        "emptySearch": "Keine passenden Waza gefunden."
+      },
+      "shikake": {
+        "subtitle": "Eigene Initiative / Angriff"
+      },
+      "oji": {
+        "subtitle": "Konter / Reaktion"
+      },
+      "sub": {
+        "tobikomi": "Direkte Sprungschläge",
+        "harai": "Wegfegen der Klinge",
+        "osae": "Niederdrücken",
+        "maki": "Einwickeln der Klinge",
+        "hiki": "Rückzug aus Tsubazeriai",
+        "renzoku": "Kombinationen",
+        "katsugi": "Schulter-Finten",
+        "katate": "Einhändige Schläge",
+        "debana": "Schlag im Ansatz",
+        "nuki": "Ausweich-Konter",
+        "suriage": "Hochstreich-Konter",
+        "kaeshi": "Umleitungs-Konter",
+        "uchiotoshi": "Herunterschlag-Konter"
+      }
+    }
+  },
+  "en": {
+    "nav": {
+      "overview": "Overview",
+      "wazaHierarchy": "Waza Hierarchy",
+      "langAria": "Language selector"
+    },
+    "footer": {
+      "tagline": "Kendō Lookup • Reference Guide for Techniques & Fundamentals",
+      "backToOverview": "Back to Overview"
+    },
+    "index": {
+      "pageTitle": "Kendō Lookup – Reference Guide & Technique Overview",
+      "heroSubtitle": "Structured reference guide for techniques, terminology, footwork, and fundamentals.",
+      "cards": {
+        "waza": {
+          "tag": "Techniques",
+          "title": "Waza Hierarchy",
+          "desc": "Hierarchical tree structure of all Shikake- and Ōji-Waza including Japanese kanji names down to individual combinations.",
+          "cta": "Open hierarchy →"
+        },
+        "planned": "Planned",
+        "comingSoon": "Coming soon",
+        "ashisabaki": {
+          "sub": "Footwork",
+          "desc": "Stepping patterns, movement principles, and biomechanics (Okuri-ashi, Ayumi-ashi, Fumikomi, Suri-ashi)."
+        },
+        "terms": {
+          "titlePrefix": "Terms",
+          "desc": "Essential basic terms, etiquette, kamae stances, and mental concepts in training."
+        }
+      }
+    },
+    "hierarchy": {
+      "pageTitle": "Waza Hierarchy – Kendō Lookup",
+      "titleSuffix": "Hierarchy",
+      "subtitle": "Vertical hierarchical breakdown of techniques into Shikake-Waza (initiative) and Ōji-Waza (reaction) with kanji and details.",
+      "toolbar": {
+        "viewLabel": "View:",
+        "singleCol": "☰ Vertical (1-column)",
+        "twoCol": "☷ Split (2-column)",
+        "searchPlaceholder": "Search waza... (e.g. Men, Kote, Harai, Nuki, すり上げ)",
+        "searchAria": "Search waza"
+      },
+      "rootSubtitle": "All techniques",
+      "units": {
+        "categorySingular": "Category",
+        "categoryPlural": "Categories",
+        "waza": "Waza",
+        "emptySearch": "No matching waza found."
+      },
+      "shikake": {
+        "subtitle": "Own Initiative / Attack"
+      },
+      "oji": {
+        "subtitle": "Counter / Reaction"
+      },
+      "sub": {
+        "tobikomi": "Direct lunging strikes",
+        "harai": "Sweeping aside the blade",
+        "osae": "Pressing down the blade",
+        "maki": "Wrapping the blade",
+        "hiki": "Retreating strikes from Tsubazeriai",
+        "renzoku": "Continuous combinations",
+        "katsugi": "Shoulder feints",
+        "katate": "One-handed strikes",
+        "debana": "Striking at initiation",
+        "nuki": "Evasive counters",
+        "suriage": "Upward deflection counters",
+        "kaeshi": "Redirecting counters",
+        "uchiotoshi": "Beating-down counters"
+      }
+    }
+  }
+}
