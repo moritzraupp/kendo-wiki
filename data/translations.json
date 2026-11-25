@@ -3,6 +3,7 @@
     "nav": {
       "overview": "Übersicht",
       "wazaHierarchy": "Waza Stammbaum",
+      "additional": "Weitere Infos",
       "langAria": "Sprachauswahl"
     },
     "footer": {
@@ -18,6 +19,12 @@
           "title": "Waza Stammbaum",
           "desc": "Hierarchische Baumstruktur aller Shikake- und Ōji-Waza mit den japanischen Kanji-Bezeichnungen bis hin zu den einzelnen Kombinationen.",
           "cta": "Stammbaum öffnen →"
+        },
+        "additional": {
+          "tag": "Praxis & Extras",
+          "title": "Weitere Infos",
+          "desc": "Praktische Ergänzungen rund ums Training wie klassische Aufwärmrufe und nützliche Dōjō-Details.",
+          "cta": "Infos öffnen →"
         },
         "planned": "Geplant",
         "comingSoon": "Demnächst verfügbar",
@@ -70,12 +77,43 @@
         "kaeshi": "Umleitungs-Konter",
         "uchiotoshi": "Herunterschlag-Konter"
       }
+    },
+    "additional": {
+      "pageTitle": "Weitere Infos – Kendō Lookup",
+      "title": "Weitere Infos",
+      "subtitle": "Ergänzende Praxis-Guides, Kommandos und Details für das Training im Dōjō.",
+      "cards": {
+        "warmup": {
+          "tag": "Aufwärmen",
+          "title": "Aufwärmruf",
+          "desc": "Klassischer Laufrhythmus der Tokioter Polizei (Keishichō) mit Ruf-Antwort-Schema und exakter Fußfolge.",
+          "cta": "Anleitung öffnen →"
+        }
+      }
+    },
+    "warmupChant": {
+      "pageTitle": "Aufwärmruf (掛け声) – Kendō Lookup",
+      "breadcrumbParent": "Weitere Infos",
+      "breadcrumbCurrent": "Aufwärmruf",
+      "titlePrefix": "Aufwärmruf",
+      "intro": "Klassischer Ruf der Tokioter Polizei (Keishichō) während des Aufwärmlaufens, gerufen im Takt der Schritte.",
+      "pronunciationNote": "Kursive Buchstaben (z. B. das i in Ichi) sind stumm und werden nicht mitgesprochen – „Ichi“ klingt z. B. wie „Itsch“.",
+      "cadenceTitle": "Ruf & Antwort (Lauf-Takt)",
+      "leader": "Leitung",
+      "group": "Gruppe",
+      "footnotePrefix": "* „Chō, chō, chō“ ist eine gesprochene Kurzform von:",
+      "footnoteMeaning": "= koordinierte Bewegung, Marschtempo",
+      "footworkTitle": "Exakte Fußfolge",
+      "footworkHint": "Wichtig: Der Laufschritt und die Zählung beginnen immer mit dem rechten Fuß. Jede Tabellenzeile entspricht einem Schrittimpuls.",
+      "leftFoot": "Linker Fuß",
+      "rightFoot": "Rechter Fuß (Beginn)"
     }
   },
   "en": {
     "nav": {
       "overview": "Overview",
       "wazaHierarchy": "Waza Hierarchy",
+      "additional": "Additional Info",
       "langAria": "Language selector"
     },
     "footer": {
@@ -91,6 +129,12 @@
           "title": "Waza Hierarchy",
           "desc": "Hierarchical tree structure of all Shikake- and Ōji-Waza including Japanese kanji names down to individual combinations.",
           "cta": "Open hierarchy →"
+        },
+        "additional": {
+          "tag": "Practice & Extras",
+          "title": "Additional Info",
+          "desc": "Practical training extras such as classic warm-up chants and useful Dōjō details.",
+          "cta": "Open section →"
         },
         "planned": "Planned",
         "comingSoon": "Coming soon",
@@ -143,6 +187,36 @@
         "kaeshi": "Redirecting counters",
         "uchiotoshi": "Beating-down counters"
       }
+    },
+    "additional": {
+      "pageTitle": "Additional Info – Kendō Lookup",
+      "title": "Additional Info",
+      "subtitle": "Supplementary practice guides, chants, and details for training in the Dōjō.",
+      "cards": {
+        "warmup": {
+          "tag": "Warm-up",
+          "title": "Warm-up Chant",
+          "desc": "Classic running cadence of the Tokyo Police (Keishichō) with call-and-response rhythm and exact foot placement.",
+          "cta": "Open guide →"
+        }
+      }
+    },
+    "warmupChant": {
+      "pageTitle": "Warm-up Chant (掛け声) – Kendō Lookup",
+      "breadcrumbParent": "Additional Info",
+      "breadcrumbCurrent": "Warm-up Chant",
+      "titlePrefix": "Warm-up Chant",
+      "intro": "Classic chant of the Tokyo Police (Keishichō) during warm-up running, called in time with the footsteps.",
+      "pronunciationNote": "Italicized letters (e.g. the i in Ichi) are silent / unpronounced — for example, “Ichi” sounds like “Itch”.",
+      "cadenceTitle": "Call & Response (Running Cadence)",
+      "leader": "Leader",
+      "group": "Group",
+      "footnotePrefix": "* “Chō, chō, chō” is a spoken abbreviation of:",
+      "footnoteMeaning": "= coordinated movement, marching pace",
+      "footworkTitle": "Exact Foot Placement",
+      "footworkHint": "Important: Running steps and counts always begin with the right foot. Each table row corresponds to a step beat.",
+      "leftFoot": "Left foot",
+      "rightFoot": "Right foot (starts)"
     }
   }
 }

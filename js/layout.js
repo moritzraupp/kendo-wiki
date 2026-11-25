@@ -1,7 +1,8 @@
 (function () {
   const NAV_ITEMS = [
     { id: 'home', href: 'index.html', i18n: 'nav.overview', label: 'Übersicht' },
-    { id: 'waza', href: 'waza-hierarchy.html', i18n: 'nav.wazaHierarchy', label: 'Waza Stammbaum' }
+    { id: 'waza', href: 'waza-hierarchy.html', i18n: 'nav.wazaHierarchy', label: 'Waza Stammbaum' },
+    { id: 'additional', href: 'additional-info.html', i18n: 'nav.additional', label: 'Weitere Infos' }
   ];
 
   const activePage = document.body.dataset.page || 'home';
