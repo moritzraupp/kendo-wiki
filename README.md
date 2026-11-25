@@ -5,7 +5,7 @@ Ein strukturiertes, statisches Nachschlagewerk für Kendō-Techniken, Terminolog
 ## Seitenstruktur
 
 - `index.html` – Startseite und Übersicht über alle Themenbereiche
-- `waza-stammbaum.html` – Hierarchischer Stammbaum der Shikake- und Ōji-Waza inklusive Kanji-Schreibweisen
+- `waza-hierarchy.html` – Hierarchischer Stammbaum der Shikake- und Ōji-Waza inklusive Kanji-Schreibweisen
 
 ## GitHub Pages Deployment
 
