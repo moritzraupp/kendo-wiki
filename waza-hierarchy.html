@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waza Stammbaum – Kendō Lookup</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --line-color: #475569;
+    --root-bg: #0f766e;
+    --root-border: #14b8a6;
+    --cat-shikake: #1d4ed8;
+    --cat-shikake-border: #60a5fa;
+    --cat-oji: #b91c1c;
+    --cat-oji-border: #f87171;
+    --sub-bg: #334155;
+    --sub-border: #94a3b8;
+    --leaf-bg: #0f172a;
+    --leaf-border: #334155;
+    --text-main: #f8fafc;
+    --text-muted: #cbd5e1;
+    --accent: #14b8a6;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    overflow-x: auto;
+  }
+
+  nav {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--leaf-border);
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    left: 0;
+  }
+
+  nav .brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  nav .brand span {
+    color: var(--accent);
+    margin-left: 6px;
+    font-weight: 400;
+  }
+
+  nav .links a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 0.95rem;
+    transition: color 0.15s ease;
+  }
+
+  nav .links a:hover,
+  nav .links a.active {
+    color: var(--accent);
+  }
+
+  .container {
+    padding: 28px 24px 48px 24px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* Tree Layout (Graphentheorie Top-Down) */
+  .tree {
+    display: flex;
+    justify-content: center;
+    min-width: max-content;
+    padding-bottom: 20px;
+  }
+
+  .tree ul {
+    padding-top: 24px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .tree li {
+    list-style-type: none;
+    position: relative;
+    padding: 24px 4px 0 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Connectors */
+  .tree li::before,
+  .tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px solid var(--line-color);
+    width: 50%;
+    height: 24px;
+  }
+
+  .tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid var(--line-color);
+  }
+
+  .tree li:only-child::after,
+  .tree li:only-child::before {
+    display: none;
+  }
+
+  .tree li:only-child {
+    padding-top: 0;
+  }
+
+  .tree li:first-child::before,
+  .tree li:last-child::after {
+    border: 0 none;
+  }
+
+  .tree li:last-child::before {
+    border-right: 2px solid var(--line-color);
+    border-radius: 0 6px 0 0;
+  }
+
+  .tree li:first-child::after {
+    border-radius: 6px 0 0 0;
+  }
+
+  .tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid var(--line-color);
+    width: 0;
+    height: 24px;
+  }
+
+  /* Nodes */
+  .node {
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+    border: 2px solid var(--sub-border);
+    background: var(--card-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+    z-index: 2;
+  }
+
+  .node:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  }
+
+  .node .jp {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .node .desc {
+    display: block;
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* Root Node */
+  .node-root {
+    background: var(--root-bg);
+    border-color: var(--root-border);
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  /* Main Branches */
+  .node-shikake {
+    background: var(--cat-shikake);
+    border-color: var(--cat-shikake-border);
+    padding: 12px 22px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .node-oji {
+    background: var(--cat-oji);
+    border-color: var(--cat-oji-border);
+    padding: 12px 22px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  /* Subcategories */
+  .node-sub {
+    background: var(--sub-bg);
+    border-color: var(--sub-border);
+    min-width: 145px;
+    max-width: 175px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .shikake-branch .node-sub {
+    border-top: 4px solid var(--cat-shikake-border);
+  }
+
+  .oji-branch .node-sub {
+    border-top: 4px solid var(--cat-oji-border);
+  }
+
+  /* Leaf Container */
+  .leaves {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+    position: relative;
+    gap: 8px;
+  }
+
+  .leaves::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    width: 2px;
+    height: 16px;
+    background: var(--line-color);
+  }
+
+  .leaf {
+    background: var(--leaf-bg);
+    border: 1px solid var(--leaf-border);
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 0.8rem;
+    width: 170px;
+    text-align: center;
+    color: #e2e8f0;
+    position: relative;
+  }
+
+  .shikake-branch .leaf {
+    border-left: 3px solid var(--cat-shikake-border);
+  }
+
+  .oji-branch .leaf {
+    border-left: 3px solid var(--cat-oji-border);
+  }
+
+  .leaf .kanji {
+    display: block;
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 2px;
+  }
+
+  @media print {
+    nav { display: none; }
+    body {
+      background: #ffffff;
+      color: #0f172a;
+      padding: 10px;
+    }
+    .node, .leaf {
+      box-shadow: none;
+    }
+    .node-root { background: #ccfbf1; color: #0f172a; }
+    .node-shikake { background: #dbeafe; color: #0f172a; }
+    .node-oji { background: #fee2e2; color: #0f172a; }
+    .node-sub { background: #f1f5f9; color: #0f172a; }
+    .leaf { background: #ffffff; color: #0f172a; border-color: #cbd5e1; }
+    .node .jp, .node .desc, .leaf .kanji { color: #475569; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">Kendō Lookup <span>剣道事典</span></a>
+  <div class="links">
+    <a href="index.html">Übersicht</a>
+    <a href="waza-stammbaum.html" class="active">Waza Stammbaum</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header>
+    <h1>Kendō Waza (剣道技) – Hierarchischer Stammbaum</h1>
+  </header>
+
+  <div class="tree">
+    <ul>
+      <li>
+        <div class="node node-root">
+          Kendō Waza
+          <span class="jp">剣道技</span>
+        </div>
+
+        <ul>
+          <!-- SHIKAKE-WAZA BRANCH -->
+          <li class="shikake-branch">
+            <div class="node node-shikake">
+              Shikake-Waza
+              <span class="jp">仕掛け技 – Eigene Initiative</span>
+            </div>
+
+            <ul>
+              <li>
+                <div class="node node-sub">
+                  Tobikomi-Waza
+                  <span class="jp">飛び込み技</span>
+                  <span class="desc">Direkte Sprungschläge</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Tobikomi-Men<span class="kanji">飛び込み面</span></div>
+                  <div class="leaf">Tobikomi-Kote<span class="kanji">飛び込み小手</span></div>
+                  <div class="leaf">Tobikomi-Dō<span class="kanji">飛び込み胴</span></div>
+                  <div class="leaf">Tsuki<span class="kanji">突き (諸手突き / 片手突き)</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Harai-Waza
+                  <span class="jp">払い技</span>
+                  <span class="desc">Wegfegen der Klinge</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Harai-Men<span class="kanji">払い面 (表・裏)</span></div>
+                  <div class="leaf">Harai-Kote<span class="kanji">払い小手 (表・裏)</span></div>
+                  <div class="leaf">Harai-Dō<span class="kanji">払い胴</span></div>
+                  <div class="leaf">Harai-Tsuki<span class="kanji">払い突き</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Osae-Waza
+                  <span class="jp">押さえ技</span>
+                  <span class="desc">Niederdrücken</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Osae-Men<span class="kanji">押さえ面</span></div>
+                  <div class="leaf">Osae-Kote<span class="kanji">押さえ小手</span></div>
+                  <div class="leaf">Osae-Dō<span class="kanji">押さえ胴</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Maki-Waza
+                  <span class="jp">巻き技</span>
+                  <span class="desc">Einwickeln der Klinge</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Maki-Men<span class="kanji">巻き面 (表・裏)</span></div>
+                  <div class="leaf">Maki-Kote<span class="kanji">巻き小手</span></div>
+                  <div class="leaf">Maki-Otoshi-Men<span class="kanji">巻き落とし面</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Hiki-Waza
+                  <span class="jp">引き技</span>
+                  <span class="desc">Rückzug aus Tsubazeriai</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Hiki-Men<span class="kanji">引き面</span></div>
+                  <div class="leaf">Hiki-Kote<span class="kanji">引き小手</span></div>
+                  <div class="leaf">Hiki-Dō<span class="kanji">引き胴 (右胴・逆胴)</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Renzoku-Waza
+                  <span class="jp">連続技</span>
+                  <span class="desc">Kombinationen</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Kote-Men<span class="kanji">小手面</span></div>
+                  <div class="leaf">Kote-Dō<span class="kanji">小手胴</span></div>
+                  <div class="leaf">Men-Men<span class="kanji">面面</span></div>
+                  <div class="leaf">Men-Dō<span class="kanji">面胴</span></div>
+                  <div class="leaf">Kote-Men-Men<span class="kanji">小手面面</span></div>
+                  <div class="leaf">Tsuki-Men / Tsuki-Kote<span class="kanji">突き面 / 突き小手</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Katsugi-Waza
+                  <span class="jp">担ぎ技</span>
+                  <span class="desc">Schulter-Finten</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Katsugi-Men<span class="kanji">担ぎ面</span></div>
+                  <div class="leaf">Katsugi-Kote<span class="kanji">担ぎ小手</span></div>
+                  <div class="leaf">Katsugi-Dō<span class="kanji">担ぎ胴</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Katate-Waza
+                  <span class="jp">片手技</span>
+                  <span class="desc">Einhändige Schläge</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Katate-Men<span class="kanji">片手面</span></div>
+                  <div class="leaf">Katate-Tsuki<span class="kanji">片手突き</span></div>
+                  <div class="leaf">Katate-Kote<span class="kanji">片手小手</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Debana-Waza
+                  <span class="jp">出ばな技</span>
+                  <span class="desc">Schlag im Ansatz</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Debana-Men<span class="kanji">出ばな面</span></div>
+                  <div class="leaf">Men-debana-Kote<span class="kanji">面出ばな小手</span></div>
+                  <div class="leaf">Kote-debana-Men<span class="kanji">小手出ばな面</span></div>
+                  <div class="leaf">Debana-Tsuki<span class="kanji">出ばな突き</span></div>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+          <!-- OJI-WAZA BRANCH -->
+          <li class="oji-branch">
+            <div class="node node-oji">
+              Ōji-Waza
+              <span class="jp">応じ技 – Konter / Reaktion</span>
+            </div>
+
+            <ul>
+              <li>
+                <div class="node node-sub">
+                  Nuki-Waza
+                  <span class="jp">抜き技</span>
+                  <span class="desc">Ausweich-Konter</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Men-nuki-Men<span class="kanji">面抜き面</span></div>
+                  <div class="leaf">Men-nuki-Dō<span class="kanji">面抜き胴</span></div>
+                  <div class="leaf">Kote-nuki-Men<span class="kanji">小手抜き面</span></div>
+                  <div class="leaf">Kote-nuki-Kote<span class="kanji">小手抜き小手</span></div>
+                  <div class="leaf">Tsuki-nuki-Men<span class="kanji">突き抜き面</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Suriage-Waza
+                  <span class="jp">すり上げ技</span>
+                  <span class="desc">Hochstreich-Konter</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Men-suriage-Men<span class="kanji">面すり上げ面 (表・裏)</span></div>
+                  <div class="leaf">Men-suriage-Kote<span class="kanji">面すり上げ小手</span></div>
+                  <div class="leaf">Kote-suriage-Men<span class="kanji">小手すり上げ面 (表・裏)</span></div>
+                  <div class="leaf">Kote-suriage-Kote<span class="kanji">小手すり上げ小手</span></div>
+                  <div class="leaf">Tsuki-suriage-Men<span class="kanji">突きすり上げ面</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Kaeshi-Waza
+                  <span class="jp">返し技</span>
+                  <span class="desc">Umleitungs-Konter</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Men-kaeshi-Dō<span class="kanji">面返し胴</span></div>
+                  <div class="leaf">Men-kaeshi-Men<span class="kanji">面返し面</span></div>
+                  <div class="leaf">Men-kaeshi-Kote<span class="kanji">面返し小手</span></div>
+                  <div class="leaf">Kote-kaeshi-Men<span class="kanji">小手返し面</span></div>
+                  <div class="leaf">Kote-kaeshi-Kote<span class="kanji">小手返し小手</span></div>
+                  <div class="leaf">Dō-kaeshi-Men<span class="kanji">胴返し面</span></div>
+                </div>
+              </li>
+
+              <li>
+                <div class="node node-sub">
+                  Uchiotoshi-Waza
+                  <span class="jp">打ち落とし技</span>
+                  <span class="desc">Herunterschlag-Konter</span>
+                </div>
+                <div class="leaves">
+                  <div class="leaf">Men-uchiotoshi-Men<span class="kanji">面打ち落とし面</span></div>
+                  <div class="leaf">Kote-uchiotoshi-Men<span class="kanji">小手打ち落とし面</span></div>
+                  <div class="leaf">Dō-uchiotoshi-Men<span class="kanji">胴打ち落とし面</span></div>
+                  <div class="leaf">Tsuki-uchiotoshi-Men<span class="kanji">突き打ち落とし面</span></div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
